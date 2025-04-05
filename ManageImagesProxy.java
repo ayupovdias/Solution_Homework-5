@@ -7,10 +7,10 @@ public class ManageImagesProxy implements ManageImages{
     public void uploadNewImage(String imageName){
         if(isAgent) {
 
-                if(manageImagesImpl==null){
-                    manageImagesImpl=new ManageImagesImpl();
-                }
-                manageImagesImpl.uploadNewImage(imageName);
+            if(manageImagesImpl==null){
+                manageImagesImpl=new ManageImagesImpl();
+            }
+            manageImagesImpl.uploadNewImage(imageName);
 
 
         }
@@ -19,14 +19,20 @@ public class ManageImagesProxy implements ManageImages{
         }
     }
     public void replaceImage(String oldImage, String newImage){
-         if(isAgent){
+        if(isAgent){
+            if(manageImagesImpl==null){
+                manageImagesImpl=new ManageImagesImpl();
+            }
             manageImagesImpl.replaceImage(oldImage, newImage);
-         }
-         else{
+        }
+        else{
             System.out.println("Only agents can replace an image");
         }
     }
     public void uploadedImages(){
+        if(manageImagesImpl==null){
+            manageImagesImpl=new ManageImagesImpl();
+        }
         manageImagesImpl.uploadedImages();
     }
 

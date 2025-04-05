@@ -15,13 +15,19 @@ public class ManageImagesImpl implements ManageImages{
         images=new HashSet<>();
     }
     public void uploadNewImage(String imageName){
-         if(verifyFile(imageName)){
-             images.add(imageName);
-             System.out.println(imageName +" was uploaded successfully");
-         }
-         else{
-             throw new IllegalArgumentException("file must contain .png, .jpg or .webp in the end");
-         }
+        if(verifyFile(imageName)) {
+            if (!images.contains(imageName)) {
+                images.add(imageName);
+                System.out.println(imageName + " was uploaded successfully");
+            }
+            else{
+                System.out.println("You have already uploaded the name with that file and extension");
+            }
+        }
+
+        else{
+            throw new IllegalArgumentException("file must contain .png, .jpg or .webp in the end");
+        }
     }
 
     public void replaceImage(String oldImage, String newImage){
