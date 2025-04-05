@@ -1,4 +1,4 @@
- public class Main{
+public class Main{
     public static void main(String[] args){
         Image image =new ImageImpl("property.png");
         Image imageOne=new ImageProxy("house.jpg");
@@ -8,5 +8,6 @@
         image.displayFullImage();
         imageTwo.displayFullImage();
 
+        
     }
- }
+}
